@@ -1,0 +1,6 @@
+description = "An OCaml toplevel upgrade"
+requires = "" # It's important not to have compiler-libs here. Confer https://github.com/dbuenzli/down/blob/af83546d9fe602c98cedb48c02ff6adcae922f58/pkg/META#L3
+archive(byte) = "down.cma"
+archive(native) = "down.cmxa"
+plugin(byte) = "down.cma"
+plugin(native) = "down.cmxs"

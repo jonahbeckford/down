@@ -29,16 +29,7 @@ doc: "https://erratique.ch/software/down/doc/"
 bug-reports: "https://github.com/dbuenzli/down/issues"
 depends: [
   "ocaml" {>= "4.14.0"}
-  "ocamlfind" {build}
-  "ocamlbuild" {build}
-  "topkg" {build & >= "1.0.3"}
-  "uucp" {dev}
+  "dune" {>= "3.12"}
 ]
-build: [
-  "ocaml" "pkg/pkg.ml" "build" "--dev-pkg" "%{dev}%" "--lib-dir" "%{lib}%"
-]
-install: [
-  ["install" "-d" "%{lib}%/ocaml/"]
-  ["install" "src/down.top" "%{lib}%/ocaml/"]
-]
-dev-repo: "git+https://erratique.ch/repos/down.git"
+build: [[ "dune" "build" "-p" name ]]
+dev-repo: "git+https://github.com/jonahbeckford/down.git"
